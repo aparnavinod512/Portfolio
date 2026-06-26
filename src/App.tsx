@@ -10,16 +10,40 @@ import {
   FileText,
   Command,
   Sparkles,
+  Database,
+  Bot
 } from "lucide-react";
+import {
+  SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress,
+  SiDjango, SiFlutter, SiHtml5, SiCss, SiTailwindcss,
+  SiMongodb, SiMysql, SiGit, SiGithub, SiFramer, SiD3, SiC
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import avatar from "@/assets/avatar.jpeg";
 import studysmart from "@/assets/project-studysmart.jpg";
 import sortingviz from "@/assets/project-sortingviz.jpg";
 
 const techStack = [
-  "Python", "Java", "C", "JavaScript", "SQL",
-  "React.js", "Node.js", "Express", "Django", "Flutter",
-  "HTML", "CSS", "Tailwind", "MongoDB", "MySQL",
-  "Git", "GitHub", "Framer Motion", "D3.js", "Ollama",
+  { name: "Python", Icon: SiPython },
+  { name: "Java", Icon: FaJava },
+  { name: "C", Icon: SiC },
+  { name: "JavaScript", Icon: SiJavascript },
+  { name: "SQL", Icon: Database },
+  { name: "React.js", Icon: SiReact },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "Express", Icon: SiExpress },
+  { name: "Django", Icon: SiDjango },
+  { name: "Flutter", Icon: SiFlutter },
+  { name: "HTML", Icon: SiHtml5 },
+  { name: "CSS", Icon: SiCss },
+  { name: "Tailwind", Icon: SiTailwindcss },
+  { name: "MongoDB", Icon: SiMongodb },
+  { name: "MySQL", Icon: SiMysql },
+  { name: "Git", Icon: SiGit },
+  { name: "GitHub", Icon: SiGithub },
+  { name: "Framer Motion", Icon: SiFramer },
+  { name: "D3.js", Icon: SiD3 },
+  { name: "Ollama", Icon: Bot },
 ];
 
 const services = [
@@ -28,28 +52,28 @@ const services = [
     tag: "WHAT I BUILD",
     title: "Full-Stack Web Applications",
     desc: "End-to-end product development — from database schema to responsive UI, deployed and production-ready.",
-    color: "from-emerald-400 to-cyan-400",
+    color: "from-slate-400 to-zinc-400",
   },
   {
     no: "02",
     tag: "FRONTEND",
     title: "Pixel-Perfect React UIs",
     desc: "Translating designs into responsive, accessible, animated React interfaces with Tailwind and Framer Motion.",
-    color: "from-pink-400 to-violet-400",
+    color: "from-gray-400 to-neutral-500",
   },
   {
     no: "03",
     tag: "BACKEND",
     title: "APIs & Databases",
     desc: "REST APIs with Node/Express and Django, MongoDB & MySQL schemas — structured for clarity and scale.",
-    color: "from-amber-300 to-orange-400",
+    color: "from-zinc-400 to-gray-500",
   },
   {
     no: "04",
     tag: "INTELLIGENCE",
     title: "AI-Augmented Features",
     desc: "Practical AI integrations — document summarisation, contextual Q&A and chatbots powered by Ollama.",
-    color: "from-blue-400 to-indigo-400",
+    color: "from-neutral-400 to-slate-500",
   },
 ];
 
@@ -192,10 +216,11 @@ function BentoAbout() {
         <div className="mt-6 flex flex-wrap gap-2">
           {techStack.map((t) => (
             <span
-              key={t}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/85 backdrop-blur"
+              key={t.name}
+              className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/85 backdrop-blur"
             >
-              {t}
+              <t.Icon className="h-3.5 w-3.5" />
+              {t.name}
             </span>
           ))}
         </div>
@@ -277,7 +302,7 @@ function BentoAbout() {
           {[
             "Mathematics", "Problem Solving", "Research",
             "English", "Malayalam", "Tamil",
-            "Reading", "Tea ☕",
+            "Reading", "Tea",
           ].map((x) => (
             <span
               key={x}
@@ -385,7 +410,7 @@ function Work() {
       ],
       tech: ["React", "Tailwind", "Node.js", "Express", "MongoDB", "Ollama"],
       img: studysmart,
-      tint: "from-violet-500/40 to-fuchsia-500/30",
+      tint: "from-slate-500/40 to-zinc-500/30",
     },
     {
       name: "Sorting Viz",
@@ -397,7 +422,7 @@ function Work() {
       ],
       tech: ["React", "Tailwind", "Flask", "SQLite", "D3.js", "Framer Motion"],
       img: sortingviz,
-      tint: "from-blue-500/40 to-cyan-500/30",
+      tint: "from-gray-500/40 to-neutral-500/30",
     },
   ];
   return (
