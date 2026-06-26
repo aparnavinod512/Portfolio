@@ -524,7 +524,7 @@ function Footer() {
   return (
     <footer className="mt-16 flex flex-col items-center gap-2 border-t border-white/10 pt-8 text-xs text-white/55">
       <div className="font-display tracking-widest">AV — APARNA VINOD</div>
-      <div>© {new Date().getFullYear()} · Built with React, TanStack & Framer Motion</div>
+      <div>© {new Date().getFullYear()} · Built with React, TypeScript & Framer Motion</div>
     </footer>
   );
 }

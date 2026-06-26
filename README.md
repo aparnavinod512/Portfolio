@@ -1,21 +1,51 @@
-# Routes
+# Aparna Portfolio
 
-TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
-defines a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
-`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
-is `src/routes/__root.tsx`.
+A pure React + TypeScript portfolio website built with Vite, Tailwind CSS, Framer Motion, and shadcn-style UI components.
 
-## Conventions
+## Tech Stack
 
-| File | URL |
-| --- | --- |
-| `index.tsx` | `/` |
-| `about.tsx` | `/about` |
-| `users/index.tsx` | `/users` |
-| `users/$id.tsx` | `/users/:id` (dynamic — bare `$`, no curly braces) |
-| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |
-| `files/$.tsx` | `/files/*` (splat — read via `_splat` param, never `*`) |
-| `_layout.tsx` | layout route (renders children via `<Outlet />`) |
-| `__root.tsx` | app shell — wraps every page; preserve `<Outlet />` |
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React
 
-`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+  assets/        Images used by the portfolio
+  components/ui/ Reusable UI components
+  hooks/         Shared React hooks
+  lib/           Utility helpers
+  App.tsx        Main portfolio page
+  main.tsx       React entry point
+  styles.css     Global styles and Tailwind theme
+```
