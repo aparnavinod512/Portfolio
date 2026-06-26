@@ -48,33 +48,33 @@
 :root {
   --radius: 1.25rem;
 
-  /* Reference-inspired palette */
-  --bg-start: oklch(0.52 0.21 270);   /* royal blue */
-  --bg-end:   oklch(0.45 0.27 305);   /* vivid violet */
-  --accent-green: oklch(0.88 0.22 150);
-  --glass: oklch(0.18 0.04 275 / 0.45);
-  --glass-strong: oklch(0.14 0.04 275 / 0.7);
-  --hairline: oklch(1 0 0 / 0.12);
+  /* Classy, professional dark theme (zinc/slate inspired) */
+  --bg-start: oklch(0.18 0.01 270);   /* dark slate */
+  --bg-end:   oklch(0.12 0.01 270);   /* darker slate */
+  --accent-green: oklch(0.85 0.02 270); /* light gray */
+  --glass: rgba(24, 24, 27, 0.45);
+  --glass-strong: rgba(24, 24, 27, 0.7);
+  --hairline: rgba(255, 255, 255, 0.08);
 
-  --background: oklch(0.18 0.05 275);
-  --foreground: oklch(0.98 0.01 270);
-  --card: oklch(0.18 0.04 275 / 0.45);
-  --card-foreground: oklch(0.98 0.01 270);
-  --popover: oklch(0.16 0.04 275);
-  --popover-foreground: oklch(0.98 0.01 270);
-  --primary: oklch(0.98 0.01 270);
-  --primary-foreground: oklch(0.18 0.05 275);
-  --secondary: oklch(0.28 0.06 275);
-  --secondary-foreground: oklch(0.98 0.01 270);
-  --muted: oklch(0.28 0.06 275);
-  --muted-foreground: oklch(0.78 0.03 270);
-  --accent: oklch(0.88 0.22 150);
-  --accent-foreground: oklch(0.18 0.05 275);
+  --background: oklch(0.13 0.01 270);
+  --foreground: oklch(0.98 0 0);
+  --card: rgba(24, 24, 27, 0.45);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.15 0.01 270);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.13 0.01 270);
+  --secondary: oklch(0.20 0.01 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.20 0.01 270);
+  --muted-foreground: oklch(0.70 0.01 270);
+  --accent: oklch(0.85 0.02 270);
+  --accent-foreground: oklch(0.13 0.01 270);
   --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 270);
-  --border: oklch(1 0 0 / 0.12);
-  --input: oklch(1 0 0 / 0.15);
-  --ring: oklch(0.88 0.22 150 / 0.6);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: rgba(255, 255, 255, 0.2);
 }
 
 .dark {
@@ -95,13 +95,13 @@
   body {
     min-height: 100vh;
     background:
-      radial-gradient(1200px 800px at 85% 10%, oklch(0.55 0.28 305 / 0.6), transparent 60%),
-      radial-gradient(1000px 700px at 10% 90%, oklch(0.55 0.22 265 / 0.5), transparent 60%),
+      radial-gradient(1200px 800px at 85% 10%, rgba(255,255,255,0.03), transparent 60%),
+      radial-gradient(1000px 700px at 10% 90%, rgba(255,255,255,0.02), transparent 60%),
       linear-gradient(120deg, var(--bg-start) 0%, var(--bg-end) 100%);
     background-attachment: fixed;
   }
 
-  /* subtle vertical noise lines like the reference */
+  /* subtle vertical noise lines */
   body::before {
     content: "";
     position: fixed;
@@ -109,8 +109,8 @@
     pointer-events: none;
     background-image: repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,0.025) 0,
-      rgba(255,255,255,0.025) 1px,
+      rgba(255,255,255,0.015) 0,
+      rgba(255,255,255,0.015) 1px,
       transparent 1px,
       transparent 3px
     );
@@ -124,6 +124,7 @@
   backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid var(--hairline);
   border-radius: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @utility glass-pill {
@@ -131,10 +132,11 @@
   backdrop-filter: blur(16px);
   border: 1px solid var(--hairline);
   border-radius: 999px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @utility text-gradient-accent {
-  background: linear-gradient(90deg, oklch(0.85 0.18 320), oklch(0.78 0.18 260));
+  background: linear-gradient(90deg, oklch(0.95 0 0), oklch(0.65 0 0));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

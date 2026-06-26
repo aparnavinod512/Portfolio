@@ -8,18 +8,56 @@ import {
   MapPin,
   Phone,
   FileText,
-  Command,
   Sparkles,
+  Database,
+  Bot,
 } from "lucide-react";
+import {
+  SiPython,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiDjango,
+  SiFlutter,
+  SiHtml5,
+  SiCss,
+  SiTailwindcss,
+  SiMongodb,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiFramer,
+  SiD3,
+  SiC,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import avatar from "@/assets/avatar.jpeg";
 import studysmart from "@/assets/project-studysmart.jpg";
 import sortingviz from "@/assets/project-sortingviz.jpg";
+import { WaveBackground } from "@/components/WaveBackground";
 
 const techStack = [
-  "Python", "Java", "C", "JavaScript", "SQL",
-  "React.js", "Node.js", "Express", "Django", "Flutter",
-  "HTML", "CSS", "Tailwind", "MongoDB", "MySQL",
-  "Git", "GitHub", "Framer Motion", "D3.js", "Ollama",
+  { name: "Python", Icon: SiPython },
+  { name: "Java", Icon: FaJava },
+  { name: "C", Icon: SiC },
+  { name: "JavaScript", Icon: SiJavascript },
+  { name: "SQL", Icon: Database },
+  { name: "React.js", Icon: SiReact },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "Express", Icon: SiExpress },
+  { name: "Django", Icon: SiDjango },
+  { name: "Flutter", Icon: SiFlutter },
+  { name: "HTML", Icon: SiHtml5 },
+  { name: "CSS", Icon: SiCss },
+  { name: "Tailwind", Icon: SiTailwindcss },
+  { name: "MongoDB", Icon: SiMongodb },
+  { name: "MySQL", Icon: SiMysql },
+  { name: "Git", Icon: SiGit },
+  { name: "GitHub", Icon: SiGithub },
+  { name: "Framer Motion", Icon: SiFramer },
+  { name: "D3.js", Icon: SiD3 },
+  { name: "Ollama", Icon: Bot },
 ];
 
 const services = [
@@ -28,35 +66,50 @@ const services = [
     tag: "WHAT I BUILD",
     title: "Full-Stack Web Applications",
     desc: "End-to-end product development — from database schema to responsive UI, deployed and production-ready.",
-    color: "from-emerald-400 to-cyan-400",
+    color: "from-slate-400 to-zinc-400",
   },
   {
     no: "02",
     tag: "FRONTEND",
     title: "Pixel-Perfect React UIs",
     desc: "Translating designs into responsive, accessible, animated React interfaces with Tailwind and Framer Motion.",
-    color: "from-pink-400 to-violet-400",
+    color: "from-gray-400 to-neutral-500",
   },
   {
     no: "03",
     tag: "BACKEND",
     title: "APIs & Databases",
     desc: "REST APIs with Node/Express and Django, MongoDB & MySQL schemas — structured for clarity and scale.",
-    color: "from-amber-300 to-orange-400",
+    color: "from-zinc-400 to-gray-500",
   },
   {
     no: "04",
     tag: "INTELLIGENCE",
     title: "AI-Augmented Features",
     desc: "Practical AI integrations — document summarisation, contextual Q&A and chatbots powered by Ollama.",
-    color: "from-blue-400 to-indigo-400",
+    color: "from-neutral-400 to-slate-500",
   },
 ];
 
 const education = [
-  { degree: "MCA", inst: "St. Joseph's College of Engineering & Technology, Palai", meta: "CGPA 8.31", years: "2024 – 2026" },
-  { degree: "BSc Mathematics", inst: "BVM Holy Cross College, Cherpunkal", meta: "CGPA 7.02", years: "2019 – 2022" },
-  { degree: "Higher Secondary", inst: "Gov HSS Pathinaramkandom", meta: "76%", years: "2017 – 2019" },
+  {
+    degree: "MCA",
+    inst: "St. Joseph's College of Engineering & Technology, Palai",
+    meta: "CGPA 8.31",
+    years: "2024 – 2026",
+  },
+  {
+    degree: "BSc Mathematics",
+    inst: "BVM Holy Cross College, Cherpunkal",
+    meta: "CGPA 7.02",
+    years: "2019 – 2022",
+  },
+  {
+    degree: "Higher Secondary",
+    inst: "Gov HSS Pathinaramkandom",
+    meta: "76%",
+    years: "2017 – 2019",
+  },
   { degree: "SSLC", inst: "Gov HSS Pathinaramkandom", meta: "95%", years: "2017" },
 ];
 
@@ -71,20 +124,22 @@ const achievements = [
 
 export default function App() {
   return (
-    <div className="relative z-10 min-h-screen text-foreground font-body">
-      <Nav />
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 pb-24">
-        <Hero />
-        <BentoAbout />
-        <Education />
-        <Services />
-        <Stats />
-        <Work />
-        <Achievements />
-        <Contact />
-        <Footer />
-      </main>
-    </div>
+    <>
+      <WaveBackground />
+      <div className="relative z-10 min-h-screen text-foreground font-body">
+        <Nav />
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 pb-24">
+          <Hero />
+          <BentoAbout />
+          <Education />
+          <Services />
+          <Stats />
+          <Work />
+          <Achievements />
+          <Contact />
+        </main>
+      </div>
+    </>
   );
 }
 
@@ -123,12 +178,6 @@ function Nav() {
         </a>
       </nav>
 
-      <button
-        aria-label="Command menu"
-        className="glass-pill flex h-10 w-10 items-center justify-center"
-      >
-        <Command className="h-4 w-4" />
-      </button>
     </header>
   );
 }
@@ -150,13 +199,11 @@ function Hero() {
         <h1 className="font-display text-5xl leading-[1.05] tracking-tight sm:text-7xl">
           Turn ideas into <br className="hidden sm:block" /> interfaces with a
           <br />
-          <span className="font-serif italic text-gradient-accent">
-            Full Stack Developer
-          </span>
+          <span className="font-serif italic text-gradient-accent">Full Stack Developer</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-white/70">
-          I&apos;m Aparna Vinod — building modern, AI-augmented web experiences
-          with React, Node, Django and a foundation in mathematics.
+          I&apos;m Aparna Vinod — building modern, AI-augmented web experiences with React, Node,
+          Django and a foundation in mathematics.
         </p>
         <div className="mt-8 flex items-center justify-center gap-3">
           <a
@@ -186,16 +233,23 @@ function BentoAbout() {
     <section id="about" className="grid gap-5 sm:grid-cols-3">
       {/* Tech Stack */}
       <Card className="sm:col-span-2 relative overflow-hidden">
-        <CardHeader title="Tech Stack" subtitle={
-          <>Crafted with code, fused with curiosity —<br />the tech behind every interface I build.</>
-        } />
+        <CardHeader
+          title="Tech Stack"
+          subtitle={
+            <>
+              Crafted with code, fused with curiosity —<br />
+              the tech behind every interface I build.
+            </>
+          }
+        />
         <div className="mt-6 flex flex-wrap gap-2">
           {techStack.map((t) => (
             <span
-              key={t}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/85 backdrop-blur"
+              key={t.name}
+              className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/85 backdrop-blur"
             >
-              {t}
+              <t.Icon className="h-3.5 w-3.5" />
+              {t.name}
             </span>
           ))}
         </div>
@@ -210,8 +264,7 @@ function BentoAbout() {
           ))}
         </div>
         <div className="relative mt-10 inline-flex rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 backdrop-blur">
-          <Sparkles className="mr-2 h-4 w-4 text-accent-green" />
-          I turn logic into interfaces.
+          <Sparkles className="mr-2 h-4 w-4 text-accent-green" />I turn logic into interfaces.
         </div>
       </Card>
 
@@ -238,17 +291,28 @@ function BentoAbout() {
             height={512}
           />
           <div className="mt-4 flex justify-center gap-2">
-            <Social href="https://linkedin.com/in/aparna-vinod-6526b0302/" label="LinkedIn"><Linkedin className="h-4 w-4" /></Social>
-            <Social href="https://github.com/aparnavinod512" label="GitHub"><Github className="h-4 w-4" /></Social>
-            <Social href="mailto:aparnavinod512@gmail.com" label="Email"><Mail className="h-4 w-4" /></Social>
-            <Social href="#" label="Resume"><FileText className="h-4 w-4" /></Social>
+            <Social href="https://linkedin.com/in/aparna-vinod-6526b0302/" label="LinkedIn">
+              <Linkedin className="h-4 w-4" />
+            </Social>
+            <Social href="https://github.com/aparnavinod512" label="GitHub">
+              <Github className="h-4 w-4" />
+            </Social>
+            <Social href="mailto:aparnavinod512@gmail.com" label="Email">
+              <Mail className="h-4 w-4" />
+            </Social>
+            <Social href="#" label="Resume">
+              <FileText className="h-4 w-4" />
+            </Social>
           </div>
         </div>
       </Card>
 
       {/* Home Base */}
       <Card>
-        <CardHeader title="Home Base" subtitle="The place where I sketch ideas, debug late, and ship by sunrise." />
+        <CardHeader
+          title="Home Base"
+          subtitle="The place where I sketch ideas, debug late, and ship by sunrise."
+        />
         <div className="mt-6 grid place-items-center">
           <div className="grid h-48 w-48 place-items-center rounded-full bg-black/60 text-xs tracking-widest text-white/70 ring-1 ring-white/10">
             <div className="flex flex-col items-center gap-1">
@@ -263,30 +327,21 @@ function BentoAbout() {
       <Card>
         <CardHeader title="What I Do" subtitle="A quick take on what I bring to a team." />
         <p className="mt-5 text-sm leading-relaxed text-white/80">
-          I design and build full-stack web applications — React on the front,
-          Node, Express or Django on the back, and a math-trained mind for the
-          tricky bits in between. Lately, I&apos;ve been weaving Ollama-powered AI
-          into learning tools.
+          I design and build full-stack web applications — React on the front, Node, Express or
+          Django on the back, and a math-trained mind for the tricky bits in between. Lately,
+          I&apos;ve been weaving Ollama-powered AI into learning tools.
         </p>
       </Card>
 
       {/* Beyond the Code */}
       <Card>
         <CardHeader title="Beyond the Code" subtitle="What keeps me curious off-screen." />
-        <div className="mt-5 flex flex-wrap gap-2">
-          {[
-            "Mathematics", "Problem Solving", "Research",
-            "English", "Malayalam", "Tamil",
-            "Reading", "Tea ☕",
-          ].map((x) => (
-            <span
-              key={x}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/85"
-            >
-              {x}
-            </span>
-          ))}
-        </div>
+        <ul className="mt-5 list-disc pl-5 space-y-2 text-sm text-white/80">
+          <li>Mathematics</li>
+          <li>Problem Solving</li>
+          <li>Communication skill</li>
+          <li>Drawing</li>
+        </ul>
       </Card>
     </section>
   );
@@ -296,7 +351,14 @@ function BentoAbout() {
 function Education() {
   return (
     <section className="mt-16">
-      <SectionHeader kicker="ACADEMICS" title={<>The <span className="font-serif italic text-gradient-accent">foundation</span></>} />
+      <SectionHeader
+        kicker="ACADEMICS"
+        title={
+          <>
+            The <span className="font-serif italic text-gradient-accent">foundation</span>
+          </>
+        }
+      />
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {education.map((e, i) => (
           <motion.div
@@ -324,7 +386,14 @@ function Education() {
 function Services() {
   return (
     <section id="skills" className="mt-20">
-      <SectionHeader kicker="SERVICES" title={<>What I <span className="font-serif italic text-gradient-accent">Bring</span></>} />
+      <SectionHeader
+        kicker="SERVICES"
+        title={
+          <>
+            What I <span className="font-serif italic text-gradient-accent">Bring</span>
+          </>
+        }
+      />
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
         {services.map((s, i) => (
           <motion.div
@@ -335,7 +404,9 @@ function Services() {
             transition={{ delay: i * 0.08 }}
             className="glass-card relative overflow-hidden p-7"
           >
-            <div className={`absolute right-4 top-2 bg-gradient-to-r ${s.color} bg-clip-text font-display text-7xl font-bold text-transparent opacity-25`}>
+            <div
+              className={`absolute right-4 top-2 bg-gradient-to-r ${s.color} bg-clip-text font-display text-7xl font-bold text-transparent opacity-25`}
+            >
               {s.no}
             </div>
             <div className="relative">
@@ -385,7 +456,7 @@ function Work() {
       ],
       tech: ["React", "Tailwind", "Node.js", "Express", "MongoDB", "Ollama"],
       img: studysmart,
-      tint: "from-violet-500/40 to-fuchsia-500/30",
+      tint: "from-slate-500/40 to-zinc-500/30",
     },
     {
       name: "Sorting Viz",
@@ -397,12 +468,19 @@ function Work() {
       ],
       tech: ["React", "Tailwind", "Flask", "SQLite", "D3.js", "Framer Motion"],
       img: sortingviz,
-      tint: "from-blue-500/40 to-cyan-500/30",
+      tint: "from-gray-500/40 to-neutral-500/30",
     },
   ];
   return (
     <section id="work" className="mt-20">
-      <SectionHeader kicker="FEATURED PROJECTS" title={<>Curated <span className="font-serif italic text-gradient-accent">work</span></>} />
+      <SectionHeader
+        kicker="FEATURED PROJECTS"
+        title={
+          <>
+            Curated <span className="font-serif italic text-gradient-accent">work</span>
+          </>
+        }
+      />
       <div className="mt-10 space-y-8">
         {projects.map((p, i) => (
           <motion.article
@@ -427,7 +505,10 @@ function Work() {
               </ul>
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.tech.map((t) => (
-                  <span key={t} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs">
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs"
+                  >
                     {t}
                   </span>
                 ))}
@@ -461,7 +542,14 @@ function Work() {
 function Achievements() {
   return (
     <section className="mt-20">
-      <SectionHeader kicker="MILESTONES" title={<>Notable <span className="font-serif italic text-gradient-accent">achievements</span></>} />
+      <SectionHeader
+        kicker="MILESTONES"
+        title={
+          <>
+            Notable <span className="font-serif italic text-gradient-accent">achievements</span>
+          </>
+        }
+      />
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((a, i) => (
           <motion.div
@@ -490,11 +578,12 @@ function Contact() {
       <div className="glass-card relative overflow-hidden p-10 sm:p-14 text-center">
         <div className="text-[11px] tracking-widest text-white/55">LET&apos;S TALK</div>
         <h2 className="mt-3 font-display text-4xl sm:text-6xl">
-          Let&apos;s build something <span className="font-serif italic text-gradient-accent">meaningful</span>
+          Let&apos;s build something{" "}
+          <span className="font-serif italic text-gradient-accent">meaningful</span>
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-sm text-white/70">
-          Open to junior developer roles, internships and freelance collaborations.
-          I&apos;ll reply within a day.
+          Open to junior developer roles, internships and freelance collaborations. I&apos;ll reply
+          within a day.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
@@ -506,28 +595,27 @@ function Contact() {
               <ArrowRight className="h-4 w-4" />
             </span>
           </a>
-          <a href="tel:+916238330743" className="glass-pill inline-flex items-center gap-2 px-5 py-3 text-sm">
+          <a
+            href="tel:+916238330743"
+            className="glass-pill inline-flex items-center gap-2 px-5 py-3 text-sm"
+          >
             <Phone className="h-4 w-4" /> +91 6238 330 743
           </a>
         </div>
         <div className="mt-6 flex justify-center gap-2">
-          <Social href="https://linkedin.com/in/aparna-vinod-6526b0302/" label="LinkedIn"><Linkedin className="h-4 w-4" /></Social>
-          <Social href="https://github.com/aparnavinod512" label="GitHub"><Github className="h-4 w-4" /></Social>
+          <Social href="https://linkedin.com/in/aparna-vinod-6526b0302/" label="LinkedIn">
+            <Linkedin className="h-4 w-4" />
+          </Social>
+          <Social href="https://github.com/aparnavinod512" label="GitHub">
+            <Github className="h-4 w-4" />
+          </Social>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- Footer ---------------- */
-function Footer() {
-  return (
-    <footer className="mt-16 flex flex-col items-center gap-2 border-t border-white/10 pt-8 text-xs text-white/55">
-      <div className="font-display tracking-widest">AV — APARNA VINOD</div>
-      <div>© {new Date().getFullYear()} · Built with React, TypeScript & Framer Motion</div>
-    </footer>
-  );
-}
+
 
 /* ---------------- Primitives ---------------- */
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -544,13 +632,7 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
-function CardHeader({
-  title,
-  subtitle,
-}: {
-  title: React.ReactNode;
-  subtitle?: React.ReactNode;
-}) {
+function CardHeader({ title, subtitle }: { title: React.ReactNode; subtitle?: React.ReactNode }) {
   return (
     <div>
       <h3 className="font-display text-2xl">{title}</h3>
